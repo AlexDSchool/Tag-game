@@ -1,7 +1,7 @@
 let cnv = document.getElementById("canvas");
 let ctx = cnv.getContext("2d");
 cnv.width = 800;
-cnv.height = 400;
+cnv.height = 325;
 i = 0;
 i2 = 0;
 gamestate = "start";
@@ -288,14 +288,12 @@ function checkrightcollision() {
     player.x <= wall2.w
   ) {
     player.x = wall2.x;
-  } else if (
-    player.y >= 300 + player.dy &&
-    player.y <= 25 + player.dy &&
-    player.x >= 475 &&
-    player.x <= 50
-  ) {
-    player.x = 475;
-  }
+  }  else if (player.y >= 300 - 25 +player.dy&&
+    player.y <= 300 + 25 +player.dy&&
+    player.x >= 475 - 25 &&
+    player.x <= 475 + 50) {
+      player.x = 450
+    }
 }
 function player2rightcollision() {
   if (
@@ -312,7 +310,12 @@ function player2rightcollision() {
     player2.x <= wall2.w
   ) {
     player2.x = wall2.x;
-  }
+  } else if (player2.y >= 300 - 25+player2.dy &&
+    player2.y <= 300 + 25 +player2.dy&&
+    player2.x >= 475 - 25 &&
+    player2.x <= 475 + 50) {
+      player2.x = 475
+    }
 }
 function checkleftcollision() {
   if (
@@ -329,7 +332,12 @@ function checkleftcollision() {
     player.x <= wall2.w
   ) {
     player.x = wall2.w;
-  }
+  } else if (player.y >= 300 - 25+player.dy &&
+    player.y <= 300 + 25 +player.dy&&
+    player.x >= 475 - 25 &&
+    player.x <= 475 + 50) {
+      player.x = 525
+    }
 }
 function checkleftcollision2() {
   if (
@@ -346,7 +354,12 @@ function checkleftcollision2() {
     player2.x <= wall2.w
   ) {
     player2.x = wall2.w;
-  }
+  } else if (player2.y >= 300 - 25 +player2.dy&&
+    player2.y <= 300 + 25 +player2.dy&&
+    player2.x >= 475 - 25 &&
+    player2.x <= 475 + 50) {
+      player2.x = 525
+    }
 }
 
 function reset() {
@@ -355,7 +368,7 @@ function reset() {
   player2.x = 300;
   player.y = 300;
   player2.y = 300;
-  gametimer = 1000;
+  gametimer = 1000000;
 }
 function loop() {
   if (gamestate === "game") {
